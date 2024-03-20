@@ -15,6 +15,7 @@ class RunArgs(BaseModel):
 
 app = FastAPI(debug=False)
 
+# ADD MORE LANGUAGES
 languages_run_configs = {
     "python": sys.executable+" {file_name} {args}",
 }

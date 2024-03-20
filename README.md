@@ -58,11 +58,10 @@ Executes the uploaded code file.
 
 #### Response
 
-- `fsize`: Size of the uploaded file.
+- `file-size`: Size of the uploaded file.
 - `result`: Result of executing the code.
-- `lang`: Programming language used.
-- `fpath`: File path of the uploaded code file.
-- `cmd`: Command used to execute the code.
+- `language`: Programming language used.
+- `file-path`: File path of the uploaded code file.
 
 
 ## Contributing
