@@ -3,6 +3,8 @@ RUN apt update && apt install -y python3 && apt install -y python3-pip
 WORKDIR /app
 COPY container-requirements.txt .
 RUN pip install -r container-requirements.txt
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y php
 COPY app.py .
 EXPOSE 8000
 HEALTHCHECK  --timeout=3s \
