@@ -36,6 +36,6 @@ async def run(file: UploadFile, args: Annotated[str, Form()], language: Annotate
         cmd = languages_run_configs.get(language, "").format(
             file_name=tf.name, args=args)
         result = await asyncio.get_running_loop().run_in_executor(None, run_cmd, cmd)
-        return {f"fsize": file.size, "result": result, "lang": language, "fpath": tf.name, "cmd": cmd}
+        return {f"file-size": file.size, "result": result, "language": language, "file-path": tf.name}
     finally:
         os.remove(tf.name)
