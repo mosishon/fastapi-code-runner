@@ -1,3 +1,9 @@
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/downloads/)
+
+[![Docker Version](https://img.shields.io/badge/docker-latest-blue.svg)](https://www.docker.com/get-started)
+
 # FastAPI Code Runner
 
 A simple web service built with FastAPI to execute code files in different programming languages within a Docker container. This project allows you to upload a code file along with arguments, specify the programming language, and execute the code. Currently, it supports Python, with plans to expand to more languages in the future.
@@ -33,7 +39,7 @@ cd fastapi-code-runner
 ```bash
 docker build -t fastapi-code-runner .
 ```
-4. Start the Docker container:
+4. Run the FastAPI Code Runner Docker container named "runner" on port {PORT}, with automatic restart, CPU limit of 0.5, and memory limit of 512 MB, allowing users to customize CPU and RAM limits as needed.:
 ```bash
 docker run --name runner -p {PORT}:8000 --restart=always --cpus=0.5 --memory="512m" -d fastapi-code-runner
 ```
