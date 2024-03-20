@@ -46,6 +46,18 @@ docker run --name runner -p {PORT}:8000 --restart=always --cpus=0.5 --memory="51
 
 ## API Documentation
 
+## Supported Languages
+
+The FastAPI Code Runner currently supports the following programming languages:
+
+- **python**: A versatile and easy-to-learn programming language widely used for various applications.
+- **javascript**: A popular scripting language often used for web development.
+- **php**: A server-side scripting language commonly used for web development.
+- **ruby**: A dynamic, object-oriented programming language known for its simplicity and productivity.
+
+Stay tuned for updates as we continue to expand language support in future releases!
+
+
 ### POST /run
 
 Executes the uploaded code file.
