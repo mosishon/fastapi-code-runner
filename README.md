@@ -44,8 +44,6 @@ docker build -t fastapi-code-runner .
 docker run --name runner -p {PORT}:8000 --restart=always --cpus=0.5 --memory="512m" -d fastapi-code-runner
 ```
 
-## API Documentation
-
 ## Supported Languages
 
 The FastAPI Code Runner currently supports the following programming languages:
@@ -57,7 +55,7 @@ The FastAPI Code Runner currently supports the following programming languages:
 
 Stay tuned for updates as we continue to expand language support in future releases!
 
-
+## API Documentation
 ### POST /run
 
 Executes the uploaded code file.
