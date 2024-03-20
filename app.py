@@ -20,6 +20,14 @@ app = FastAPI(debug=False)
 languages_run_configs = {
     "python": sys.executable+" {file_name} {args}",
     "php": "php {file_name} {args}",
+    "ruby": "ruby {file_name} {args}",
+    "javascript": "node {file_name} {args}",
+}
+formats = {
+    "python": ".py",
+    "php": ".php",
+    "ruby": ".rb",
+    "javascript": ".js",
 }
 
 
@@ -31,9 +39,14 @@ def run_cmd(cmd: str) -> str:
 async def run(file: UploadFile, args: Annotated[str, Form()], language: Annotated[str, Form()]):
     if language not in languages_run_configs:
         return {"error": "language not found"}
+    if file.size is None:
+        return
+    if file.size > 1024*15:  # 15 KB
+        return {"error": "File size exceeds the maximum allowed limit of 15 KB. Please upload a smaller file."}
     try:
+        file_format = formats.get(language, ".txt")
         tf = NamedTemporaryFile(
-            "w", suffix=".py", encoding="utf-8", delete=False)
+            "w", suffix=file_format, encoding="utf-8", delete=False)
         tf.write(file.file.read().decode())
         tf.close()
         cmd = languages_run_configs.get(language, "").format(
